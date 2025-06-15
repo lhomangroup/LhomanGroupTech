@@ -1,6 +1,9 @@
 import Navigation from "@/components/ui/navigation";
 import Hero from "@/components/ui/hero";
 import Services from "@/components/ui/services";
+import Strategy from "@/components/ui/strategy";
+import Technology from "@/components/ui/technology";
+import Transformation from "@/components/ui/transformation";
 import Expertise from "@/components/ui/expertise";
 import Methodology from "@/components/ui/methodology";
 import About from "@/components/ui/about";
@@ -13,6 +16,9 @@ export default function Home() {
       <Navigation />
       <Hero />
       <Services />
+      <Strategy />
+      <Technology />
+      <Transformation />
       <Expertise />
       <Methodology />
       <About />

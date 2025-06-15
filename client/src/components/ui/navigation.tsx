@@ -12,7 +12,7 @@ export default function Navigation() {
       setIsScrolled(window.scrollY > 50);
       
       // Find active section
-      const sections = ["services", "expertise", "methodologie", "about", "contact"];
+      const sections = ["services", "strategie", "technologie", "transformation", "expertise", "methodologie", "about", "contact"];
       const current = sections.find(section => {
         const element = document.getElementById(section);
         if (element) {
@@ -43,6 +43,9 @@ export default function Navigation() {
 
   const navItems = [
     { id: "services", label: "Services" },
+    { id: "strategie", label: "Stratégie" },
+    { id: "technologie", label: "Technologie" },
+    { id: "transformation", label: "Transformation" },
     { id: "expertise", label: "Expertise" },
     { id: "methodologie", label: "Méthodologie" },
     { id: "about", label: "À propos" },
