@@ -32,11 +32,8 @@ export default function Footer() {
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
           {/* Company Info */}
           <div>
-            <div className="flex items-center space-x-2 mb-6">
-              <div className="w-10 h-10 bg-gradient-to-r from-brand-blue to-brand-cyan rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-xl">L</span>
-              </div>
-              <span className="text-xl font-bold">Lhoman Group Technologies</span>
+            <div className="mb-6">
+              <h3 className="text-xl font-bold">Lhoman Group Technologies</h3>
             </div>
             <p className="text-slate-400 mb-6">
               Votre partenaire de confiance pour la transformation digitale et l'innovation technologique.
