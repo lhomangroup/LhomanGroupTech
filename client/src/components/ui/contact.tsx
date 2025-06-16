@@ -86,7 +86,7 @@ export default function Contact() {
                 </div>
                 <div>
                   <h4 className="font-semibold text-slate-900 mb-1">Adresse</h4>
-                  <p className="text-slate-600">Lhoman Group<br />France</p>
+                  <p className="text-slate-600">187 Rue Colbert<br />92700 Colombes, France</p>
                 </div>
               </div>
 

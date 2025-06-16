@@ -76,7 +76,7 @@ export default function Footer() {
             <div className="space-y-3 text-slate-400">
               <div className="flex items-start space-x-3">
                 <span className="text-brand-blue mt-1">📍</span>
-                <span>Lhoman Group<br />France</span>
+                <span>187 Rue Colbert<br />92700 Colombes, France</span>
               </div>
               <div className="flex items-center space-x-3">
                 <span className="text-brand-cyan">📞</span>
