@@ -13,45 +13,45 @@ import {
 const strategyOffers = [
   {
     icon: Building,
-    title: "Architecture solution",
+    title: "Solution d'architecture",
     description: "Conception d'architectures technologiques robustes et évolutives adaptées à vos besoins métier.",
-    gradient: "from-brand-blue to-blue-600"
+    color: "bg-orange-500"
   },
   {
-    icon: Target,
+    icon: BarChart3,
     title: "Stratégie produit",
-    description: "Définition de la vision produit et de la roadmap pour maximiser la valeur business.",
-    gradient: "from-brand-cyan to-cyan-600"
+    description: "Définition de la vision produit et de la feuille de route pour maximiser la valeur business.",
+    color: "bg-red-500"
   },
   {
-    icon: Building,
+    icon: Rocket,
     title: "Architecture d'entreprise",
     description: "Alignement des systèmes d'information avec la stratégie d'entreprise globale.",
-    gradient: "from-brand-emerald to-emerald-600"
+    color: "bg-indigo-500"
   },
   {
     icon: Users,
     title: "Expérience utilisateur",
     description: "Optimisation de l'expérience utilisateur pour améliorer l'engagement et la satisfaction.",
-    gradient: "from-purple-500 to-purple-600"
+    color: "bg-purple-500"
   },
   {
     icon: MapPin,
-    title: "Roadmap & Portfolio",
+    title: "Feuille de route et portefeuille",
     description: "Planification stratégique et gestion de portefeuille de projets technologiques.",
-    gradient: "from-orange-500 to-orange-600"
+    color: "bg-orange-500"
   },
   {
     icon: BarChart3,
-    title: "Objectifs & Key Results (OKR)",
+    title: "Objectifs et résultats clés (OKR)",
     description: "Mise en place d'un système de mesure de performance aligné sur les objectifs stratégiques.",
-    gradient: "from-red-500 to-red-600"
+    color: "bg-red-500"
   },
   {
-    icon: Rocket,
-    title: "Startup / Innovation Lab",
+    icon: Lightbulb,
+    title: "Laboratoire de démarrage / d'innovation",
     description: "Accompagnement des startups et laboratoires d'innovation dans leur croissance technologique.",
-    gradient: "from-indigo-500 to-indigo-600"
+    color: "bg-indigo-500"
   }
 ];
 
@@ -137,7 +137,7 @@ export default function Strategy() {
               return (
                 <Card key={index} className="bg-white rounded-xl p-6 hover:shadow-lg transition-all duration-300 group border-0 h-full">
                   <CardContent className="p-0 flex flex-col h-full">
-                    <div className={`w-12 h-12 bg-gradient-to-r ${offer.gradient} rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform`}>
+                    <div className={`w-12 h-12 ${offer.color} rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform`}>
                       <IconComponent className="text-white h-6 w-6" />
                     </div>
                     <h4 className="text-lg font-semibold text-slate-900 mb-3">{offer.title}</h4>
