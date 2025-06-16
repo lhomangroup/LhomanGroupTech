@@ -15,49 +15,49 @@ const transformationOffers = [
     icon: RefreshCw,
     title: "Digital Transformation",
     description: "Accompagnement complet dans votre transformation numérique et culturelle.",
-    gradient: "from-brand-blue to-blue-600"
+    color: "bg-blue-500"
   },
   {
     icon: Users,
     title: "Change Management",
     description: "Gestion du changement et adoption des nouvelles technologies par les équipes.",
-    gradient: "from-brand-cyan to-cyan-600"
+    color: "bg-cyan-500"
   },
   {
     icon: TrendingUp,
     title: "Business Strategy",
     description: "Alignement de la stratégie business avec les capacités technologiques.",
-    gradient: "from-brand-emerald to-emerald-600"
+    color: "bg-emerald-500"
   },
   {
     icon: Target,
     title: "Process Optimization",
     description: "Optimisation et automatisation des processus métier existants.",
-    gradient: "from-purple-500 to-purple-600"
+    color: "bg-purple-500"
   },
   {
     icon: Lightbulb,
     title: "Innovation Lab",
     description: "Création de laboratoires d'innovation pour explorer de nouvelles opportunités.",
-    gradient: "from-orange-500 to-orange-600"
+    color: "bg-orange-500"
   },
   {
     icon: Settings,
     title: "Legacy Modernization",
     description: "Modernisation des systèmes legacy vers des architectures modernes.",
-    gradient: "from-red-500 to-red-600"
+    color: "bg-red-500"
   },
   {
     icon: BarChart3,
     title: "Data-Driven Culture",
     description: "Instauration d'une culture data-driven pour la prise de décision.",
-    gradient: "from-indigo-500 to-indigo-600"
+    color: "bg-indigo-500"
   },
   {
     icon: Workflow,
     title: "Agile Transformation",
     description: "Transformation agile des équipes et des méthodes de travail.",
-    gradient: "from-teal-500 to-teal-600"
+    color: "bg-teal-500"
   }
 ];
 
@@ -171,8 +171,8 @@ export default function Transformation() {
               return (
                 <Card key={index} className="bg-white rounded-xl p-6 hover:shadow-lg transition-all duration-300 group border-0 h-full">
                   <CardContent className="p-0 flex flex-col h-full">
-                    <div className={`w-12 h-12 bg-gradient-to-r ${offer.gradient} rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform`}>
-                      <IconComponent className="text-white h-6 w-6" />
+                    <div className={`w-12 h-12 ${offer.color} rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform`}>
+                      <IconComponent className="text-slate-900 h-6 w-6" />
                     </div>
                     <h4 className="text-lg font-semibold text-slate-900 mb-3">{offer.title}</h4>
                     <p className="text-slate-600 text-sm flex-grow">{offer.description}</p>
