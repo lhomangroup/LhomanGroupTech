@@ -76,15 +76,15 @@ export default function Footer() {
             <div className="space-y-3 text-slate-400">
               <div className="flex items-start space-x-3">
                 <span className="text-brand-blue mt-1">📍</span>
-                <span>123 Avenue de la Technologie<br />75001 Paris, France</span>
+                <span>Lhoman Group<br />France</span>
               </div>
               <div className="flex items-center space-x-3">
                 <span className="text-brand-cyan">📞</span>
-                <span>+33 1 23 45 67 89</span>
+                <span>Nous contacter via email</span>
               </div>
               <div className="flex items-center space-x-3">
                 <span className="text-brand-emerald">✉️</span>
-                <span>contact@lhomangroup.tech</span>
+                <span>contact@lhomangroup.fr</span>
               </div>
             </div>
           </div>

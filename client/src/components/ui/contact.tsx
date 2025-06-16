@@ -86,7 +86,7 @@ export default function Contact() {
                 </div>
                 <div>
                   <h4 className="font-semibold text-slate-900 mb-1">Adresse</h4>
-                  <p className="text-slate-600">123 Avenue de la Technologie<br />75001 Paris, France</p>
+                  <p className="text-slate-600">Lhoman Group<br />France</p>
                 </div>
               </div>
 
@@ -96,7 +96,7 @@ export default function Contact() {
                 </div>
                 <div>
                   <h4 className="font-semibold text-slate-900 mb-1">Téléphone</h4>
-                  <p className="text-slate-600">+33 1 23 45 67 89</p>
+                  <p className="text-slate-600">Nous contacter via email</p>
                 </div>
               </div>
 
@@ -106,7 +106,7 @@ export default function Contact() {
                 </div>
                 <div>
                   <h4 className="font-semibold text-slate-900 mb-1">Email</h4>
-                  <p className="text-slate-600">contact@lhomangroup.tech</p>
+                  <p className="text-slate-600">contact@lhomangroup.fr</p>
                 </div>
               </div>
 
