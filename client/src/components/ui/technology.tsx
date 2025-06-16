@@ -15,49 +15,49 @@ const technologyOffers = [
     icon: Code2,
     title: "Développement Java",
     description: "Expertise avancée en écosystème Java pour des applications robustes et scalables.",
-    gradient: "from-brand-blue to-blue-600"
+    color: "bg-blue-500"
   },
   {
     icon: Database,
     title: "Conseil Architecture",
     description: "Conception d'architectures techniques optimales pour vos besoins métier.",
-    gradient: "from-brand-cyan to-cyan-600"
+    color: "bg-cyan-500"
   },
   {
     icon: Cloud,
     title: "Cloud & Infrastructure",
     description: "Migration et optimisation d'infrastructures cloud natives.",
-    gradient: "from-brand-emerald to-emerald-600"
+    color: "bg-emerald-500"
   },
   {
     icon: Smartphone,
     title: "Applications Mobile",
     description: "Développement d'applications mobiles performantes et intuitives.",
-    gradient: "from-purple-500 to-purple-600"
+    color: "bg-purple-500"
   },
   {
     icon: Globe,
     title: "Applications Web",
     description: "Solutions web modernes avec les dernières technologies front-end.",
-    gradient: "from-orange-500 to-orange-600"
+    color: "bg-orange-500"
   },
   {
     icon: Zap,
     title: "Big Data & Analytics",
     description: "Traitement et analyse de données massives pour des insights métier.",
-    gradient: "from-red-500 to-red-600"
+    color: "bg-red-500"
   },
   {
     icon: Shield,
     title: "Blockchain & Security",
     description: "Solutions blockchain et sécurité avancée pour la confiance numérique.",
-    gradient: "from-indigo-500 to-indigo-600"
+    color: "bg-indigo-500"
   },
   {
     icon: Monitor,
     title: "DevOps & Automation",
     description: "Automatisation des processus de développement et déploiement.",
-    gradient: "from-teal-500 to-teal-600"
+    color: "bg-teal-500"
   }
 ];
 
@@ -147,8 +147,8 @@ export default function Technology() {
               return (
                 <Card key={index} className="bg-slate-50 rounded-xl p-6 hover:shadow-lg transition-all duration-300 group border-0 h-full">
                   <CardContent className="p-0 flex flex-col h-full">
-                    <div className={`w-12 h-12 bg-gradient-to-r ${offer.gradient} rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform`}>
-                      <IconComponent className="text-white h-6 w-6" />
+                    <div className={`w-12 h-12 ${offer.color} rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform`}>
+                      <IconComponent className="text-slate-900 h-6 w-6" />
                     </div>
                     <h4 className="text-lg font-semibold text-slate-900 mb-3">{offer.title}</h4>
                     <p className="text-slate-600 text-sm flex-grow">{offer.description}</p>

@@ -12,39 +12,40 @@ import {
 
 const expertiseCategories = [
   {
-    title: "Cloud Platforms",
-    technologies: [
-      { name: "Amazon Web Services", icon: Cloud, color: "text-orange-600", bg: "bg-orange-100" },
-      { name: "Microsoft Azure", icon: Cloud, color: "text-blue-600", bg: "bg-blue-100" },
-      { name: "Google Cloud Platform", icon: Cloud, color: "text-green-600", bg: "bg-green-100" }
-    ]
+    title: "Cloud Computing",
+    description: "Migration, architecture et optimisation cloud avec AWS, Azure et Google Cloud Platform.",
+    details: [
+      "Migration vers le cloud",
+      "Architecture multi-cloud", 
+      "Optimisation des coûts",
+      "Sécurité cloud"
+    ],
+    icon: Cloud,
+    color: "bg-blue-500"
   },
   {
-    title: "Développement",
-    technologies: [
-      { name: "JavaScript/TypeScript", icon: Code, color: "text-yellow-600", bg: "bg-yellow-100" },
-      { name: "Python", icon: Code, color: "text-blue-600", bg: "bg-blue-100" },
-      { name: "Java/Spring", icon: Code, color: "text-red-600", bg: "bg-red-100" },
-      { name: "React/Angular", icon: Monitor, color: "text-cyan-600", bg: "bg-cyan-100" }
-    ]
+    title: "Data Engineering",
+    description: "Conception et mise en œuvre de pipelines de données robustes et évolutifs.",
+    details: [
+      "Architecture de données",
+      "ETL/ELT moderne",
+      "Data lakes et warehouses",
+      "Analytics en temps réel"
+    ],
+    icon: Database,
+    color: "bg-green-500"
   },
   {
-    title: "Data & Analytics",
-    technologies: [
-      { name: "Apache Spark", icon: Database, color: "text-orange-600", bg: "bg-orange-100" },
-      { name: "Elasticsearch", icon: Database, color: "text-blue-600", bg: "bg-blue-100" },
-      { name: "MongoDB/PostgreSQL", icon: Database, color: "text-green-600", bg: "bg-green-100" },
-      { name: "Apache Kafka", icon: Server, color: "text-purple-600", bg: "bg-purple-100" }
-    ]
-  },
-  {
-    title: "DevOps Tools",
-    technologies: [
-      { name: "Docker/Kubernetes", icon: Layers, color: "text-blue-600", bg: "bg-blue-100" },
-      { name: "GitLab CI/Jenkins", icon: Cpu, color: "text-orange-600", bg: "bg-orange-100" },
-      { name: "Terraform/Ansible", icon: Server, color: "text-purple-600", bg: "bg-purple-100" },
-      { name: "Prometheus/Grafana", icon: Globe, color: "text-red-600", bg: "bg-red-100" }
-    ]
+    title: "DevOps & CI/CD",
+    description: "Automatisation des déploiements et culture DevOps pour accélérer la livraison.",
+    details: [
+      "Pipelines CI/CD",
+      "Infrastructure as Code",
+      "Monitoring et observabilité",
+      "Containers et Kubernetes"
+    ],
+    icon: Cpu,
+    color: "bg-purple-500"
   }
 ];
 
@@ -59,24 +60,29 @@ export default function Expertise() {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {expertiseCategories.map((category, index) => (
-            <Card key={index} className="bg-white rounded-xl p-6 shadow-sm border-0">
-              <CardContent className="p-0">
-                <h4 className="font-semibold text-slate-900 mb-4 text-center">{category.title}</h4>
-                <div className="space-y-3">
-                  {category.technologies.map((tech, techIndex) => (
-                    <div key={techIndex} className="flex items-center space-x-3">
-                      <div className={`w-8 h-8 ${tech.bg} rounded-lg flex items-center justify-center`}>
-                        <tech.icon className={`${tech.color} text-sm`} />
+        <div className="grid md:grid-cols-1 lg:grid-cols-3 gap-8">
+          {expertiseCategories.map((category, index) => {
+            const IconComponent = category.icon;
+            return (
+              <Card key={index} className="bg-white rounded-xl p-6 shadow-sm border-0 h-full">
+                <CardContent className="p-0 flex flex-col h-full">
+                  <div className={`w-12 h-12 ${category.color} rounded-lg flex items-center justify-center mb-4`}>
+                    <IconComponent className="text-slate-900 h-6 w-6" />
+                  </div>
+                  <h4 className="text-xl font-semibold text-slate-900 mb-3">{category.title}</h4>
+                  <p className="text-slate-600 mb-4 flex-grow">{category.description}</p>
+                  <div className="space-y-2">
+                    {category.details.map((detail, detailIndex) => (
+                      <div key={detailIndex} className="flex items-center space-x-2">
+                        <div className="w-1.5 h-1.5 bg-brand-blue rounded-full"></div>
+                        <span className="text-slate-600 text-sm">{detail}</span>
                       </div>
-                      <span className="text-slate-600 text-sm">{tech.name}</span>
-                    </div>
-                  ))}
-                </div>
-              </CardContent>
-            </Card>
-          ))}
+                    ))}
+                  </div>
+                </CardContent>
+              </Card>
+            );
+          })}
         </div>
       </div>
     </section>
