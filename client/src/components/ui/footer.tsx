@@ -80,7 +80,7 @@ export default function Footer() {
               </div>
               <div className="flex items-center space-x-3">
                 <span className="text-brand-cyan">📞</span>
-                <span>Nous contacter via email</span>
+                <span>Mobile : (+33) 7 43 16 82 35<br />Fixe : (+33) 9 74 06 41 23</span>
               </div>
               <div className="flex items-center space-x-3">
                 <span className="text-brand-emerald">✉️</span>

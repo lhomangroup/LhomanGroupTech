@@ -96,7 +96,7 @@ export default function Contact() {
                 </div>
                 <div>
                   <h4 className="font-semibold text-slate-900 mb-1">Téléphone</h4>
-                  <p className="text-slate-600">Nous contacter via email</p>
+                  <p className="text-slate-600">Mobile : (+33) 7 43 16 82 35<br />Fixe : (+33) 9 74 06 41 23</p>
                 </div>
               </div>
 
