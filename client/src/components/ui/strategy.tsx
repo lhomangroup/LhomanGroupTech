@@ -138,7 +138,7 @@ export default function Strategy() {
                 <Card key={index} className="bg-white rounded-xl p-6 hover:shadow-lg transition-all duration-300 group border-0 h-full">
                   <CardContent className="p-0 flex flex-col h-full">
                     <div className={`w-12 h-12 ${offer.color} rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform`}>
-                      <IconComponent className="text-white h-6 w-6" />
+                      <IconComponent className="text-slate-900 h-6 w-6" />
                     </div>
                     <h4 className="text-lg font-semibold text-slate-900 mb-3">{offer.title}</h4>
                     <p className="text-slate-600 text-sm flex-grow">{offer.description}</p>
