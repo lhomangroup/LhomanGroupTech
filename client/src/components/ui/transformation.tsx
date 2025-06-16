@@ -87,23 +87,75 @@ export default function Transformation() {
 
           {/* Visual */}
           <div className="relative">
-            <div className="relative w-full h-96 bg-gradient-to-br from-slate-100 to-slate-200 rounded-2xl overflow-hidden">
+            <div className="relative w-full h-96 bg-gradient-to-br from-slate-100 to-slate-200 rounded-2xl overflow-hidden shadow-2xl">
               <div className="absolute inset-0 bg-gradient-to-br from-blue-600/5 to-cyan-500/5"></div>
               
-              {/* Transformation workspace illustration */}
-              <div className="absolute inset-8 bg-gradient-to-br from-brand-blue/10 to-brand-cyan/10 rounded-xl flex items-center justify-center">
-                <div className="text-center">
-                  <div className="w-24 h-24 bg-white/90 rounded-2xl shadow-xl flex items-center justify-center mx-auto mb-4">
-                    <RefreshCw className="h-12 w-12 text-brand-blue" />
+              {/* Business transformation dashboard */}
+              <div className="absolute inset-4 bg-gradient-to-br from-white/80 to-slate-50/80 rounded-xl backdrop-blur-sm">
+                <div className="p-6 h-full flex flex-col">
+                  {/* Dashboard header */}
+                  <div className="flex items-center justify-between mb-6">
+                    <div className="w-16 h-16 bg-gradient-to-r from-brand-blue to-brand-cyan rounded-xl flex items-center justify-center shadow-lg">
+                      <RefreshCw className="h-8 w-8 text-white" />
+                    </div>
+                    <div className="text-right">
+                      <div className="text-xs text-slate-500">Transformation</div>
+                      <div className="text-sm font-semibold text-slate-700">Progress</div>
+                    </div>
                   </div>
-                  <div className="text-slate-600 font-medium">Transformation Digitale</div>
+                  
+                  {/* Progress bars */}
+                  <div className="space-y-4 flex-1">
+                    <div>
+                      <div className="flex justify-between mb-1">
+                        <span className="text-xs text-slate-600">Digital Strategy</span>
+                        <span className="text-xs text-brand-blue">85%</span>
+                      </div>
+                      <div className="w-full bg-slate-200 rounded-full h-2">
+                        <div className="bg-gradient-to-r from-brand-blue to-blue-600 h-2 rounded-full w-[85%]"></div>
+                      </div>
+                    </div>
+                    <div>
+                      <div className="flex justify-between mb-1">
+                        <span className="text-xs text-slate-600">Process Automation</span>
+                        <span className="text-xs text-brand-cyan">72%</span>
+                      </div>
+                      <div className="w-full bg-slate-200 rounded-full h-2">
+                        <div className="bg-gradient-to-r from-brand-cyan to-cyan-600 h-2 rounded-full w-[72%]"></div>
+                      </div>
+                    </div>
+                    <div>
+                      <div className="flex justify-between mb-1">
+                        <span className="text-xs text-slate-600">Team Training</span>
+                        <span className="text-xs text-brand-emerald">90%</span>
+                      </div>
+                      <div className="w-full bg-slate-200 rounded-full h-2">
+                        <div className="bg-gradient-to-r from-brand-emerald to-emerald-600 h-2 rounded-full w-[90%]"></div>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  {/* Metrics */}
+                  <div className="grid grid-cols-3 gap-2 mt-4">
+                    <div className="text-center">
+                      <div className="text-xs text-brand-blue font-semibold">+42%</div>
+                      <div className="text-xs text-slate-500">Efficiency</div>
+                    </div>
+                    <div className="text-center">
+                      <div className="text-xs text-brand-cyan font-semibold">-28%</div>
+                      <div className="text-xs text-slate-500">Time</div>
+                    </div>
+                    <div className="text-center">
+                      <div className="text-xs text-brand-emerald font-semibold">+65%</div>
+                      <div className="text-xs text-slate-500">ROI</div>
+                    </div>
+                  </div>
                 </div>
               </div>
               
-              {/* Charts and graphs elements */}
-              <div className="absolute top-6 right-6 w-12 h-12 bg-brand-blue/20 rounded-lg"></div>
-              <div className="absolute bottom-6 left-6 w-16 h-16 bg-brand-cyan/20 rounded-xl"></div>
-              <div className="absolute top-20 left-6 w-8 h-8 bg-brand-emerald/30 rounded-full"></div>
+              {/* Decorative elements */}
+              <div className="absolute top-4 right-4 w-6 h-6 bg-brand-blue/20 rounded-lg rotate-12"></div>
+              <div className="absolute bottom-4 left-4 w-4 h-4 bg-brand-cyan/30 rounded-full"></div>
             </div>
           </div>
         </div>

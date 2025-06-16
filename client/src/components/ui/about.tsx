@@ -54,34 +54,78 @@ export default function About() {
           </div>
 
           <div className="relative">
-            <div className="relative w-full h-96 bg-gradient-to-br from-slate-100 to-slate-200 rounded-2xl overflow-hidden">
+            <div className="relative w-full h-96 bg-gradient-to-br from-slate-100 to-slate-200 rounded-2xl overflow-hidden shadow-2xl">
               <div className="absolute inset-0 bg-gradient-to-br from-blue-600/5 to-cyan-500/5"></div>
               
-              <div className="absolute top-16 left-16 w-16 h-16 bg-gradient-to-br from-brand-blue to-blue-600 rounded-full flex items-center justify-center">
-                <Users className="text-white h-6 w-6" />
-              </div>
-              <div className="absolute top-16 right-16 w-16 h-16 bg-gradient-to-br from-brand-cyan to-cyan-600 rounded-full flex items-center justify-center">
-                <Users className="text-white h-6 w-6" />
-              </div>
-              <div className="absolute bottom-16 left-20 w-16 h-16 bg-gradient-to-br from-brand-emerald to-emerald-600 rounded-full flex items-center justify-center">
-                <Users className="text-white h-6 w-6" />
-              </div>
-              <div className="absolute bottom-16 right-20 w-16 h-16 bg-gradient-to-br from-purple-500 to-purple-600 rounded-full flex items-center justify-center">
-                <Users className="text-white h-6 w-6" />
-              </div>
-              
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="w-20 h-20 bg-white/90 rounded-2xl shadow-xl flex items-center justify-center">
-                  <Handshake className="h-8 w-8 text-brand-blue" />
+              {/* Team collaboration visualization */}
+              <div className="absolute inset-4 bg-gradient-to-br from-white/80 to-slate-50/80 rounded-xl backdrop-blur-sm">
+                <div className="p-6 h-full flex flex-col justify-center">
+                  {/* Company logo/icon */}
+                  <div className="w-20 h-20 bg-gradient-to-r from-brand-blue to-brand-cyan rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg">
+                    <Handshake className="h-10 w-10 text-white" />
+                  </div>
+                  
+                  {/* Team network visualization */}
+                  <div className="relative flex-1 flex items-center justify-center">
+                    {/* Team members around center */}
+                    <div className="absolute top-0 left-1/2 transform -translate-x-1/2">
+                      <div className="w-12 h-12 bg-gradient-to-br from-brand-blue to-blue-600 rounded-full flex items-center justify-center shadow-md">
+                        <Users className="text-white h-6 w-6" />
+                      </div>
+                    </div>
+                    <div className="absolute top-1/2 right-0 transform -translate-y-1/2">
+                      <div className="w-12 h-12 bg-gradient-to-br from-brand-cyan to-cyan-600 rounded-full flex items-center justify-center shadow-md">
+                        <Users className="text-white h-6 w-6" />
+                      </div>
+                    </div>
+                    <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2">
+                      <div className="w-12 h-12 bg-gradient-to-br from-brand-emerald to-emerald-600 rounded-full flex items-center justify-center shadow-md">
+                        <Users className="text-white h-6 w-6" />
+                      </div>
+                    </div>
+                    <div className="absolute top-1/2 left-0 transform -translate-y-1/2">
+                      <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-purple-600 rounded-full flex items-center justify-center shadow-md">
+                        <Users className="text-white h-6 w-6" />
+                      </div>
+                    </div>
+                    
+                    {/* Center collaboration hub */}
+                    <div className="w-16 h-16 bg-white rounded-2xl shadow-xl flex items-center justify-center border-2 border-brand-blue/20">
+                      <div className="text-brand-blue text-xs font-bold">LGT</div>
+                    </div>
+                    
+                    {/* Connection lines */}
+                    <svg className="absolute inset-0 w-full h-full" style={{ zIndex: -1 }}>
+                      <line x1="50%" y1="20%" x2="50%" y2="50%" stroke="url(#lineGradient)" strokeWidth="1" opacity="0.4"/>
+                      <line x1="80%" y1="50%" x2="50%" y2="50%" stroke="url(#lineGradient)" strokeWidth="1" opacity="0.4"/>
+                      <line x1="50%" y1="80%" x2="50%" y2="50%" stroke="url(#lineGradient)" strokeWidth="1" opacity="0.4"/>
+                      <line x1="20%" y1="50%" x2="50%" y2="50%" stroke="url(#lineGradient)" strokeWidth="1" opacity="0.4"/>
+                      <defs>
+                        <linearGradient id="lineGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                          <stop offset="0%" stopColor="hsl(222, 84%, 45%)" stopOpacity="0.6" />
+                          <stop offset="100%" stopColor="hsl(188, 95%, 43%)" stopOpacity="0.3" />
+                        </linearGradient>
+                      </defs>
+                    </svg>
+                  </div>
+                  
+                  {/* Company values */}
+                  <div className="grid grid-cols-2 gap-2 text-center">
+                    <div className="text-xs">
+                      <div className="text-brand-blue font-semibold">8+</div>
+                      <div className="text-slate-500">Années</div>
+                    </div>
+                    <div className="text-xs">
+                      <div className="text-brand-cyan font-semibold">150+</div>
+                      <div className="text-slate-500">Projets</div>
+                    </div>
+                  </div>
                 </div>
               </div>
               
-              <svg className="absolute inset-0 w-full h-full" style={{ zIndex: 0 }}>
-                <line x1="25%" y1="30%" x2="50%" y2="50%" stroke="#64748B" strokeWidth="1" opacity="0.3"/>
-                <line x1="75%" y1="30%" x2="50%" y2="50%" stroke="#64748B" strokeWidth="1" opacity="0.3"/>
-                <line x1="30%" y1="70%" x2="50%" y2="50%" stroke="#64748B" strokeWidth="1" opacity="0.3"/>
-                <line x1="70%" y1="70%" x2="50%" y2="50%" stroke="#64748B" strokeWidth="1" opacity="0.3"/>
-              </svg>
+              {/* Decorative elements */}
+              <div className="absolute top-4 right-4 w-6 h-6 bg-brand-blue/20 rounded-lg rotate-12"></div>
+              <div className="absolute bottom-4 left-4 w-4 h-4 bg-brand-cyan/30 rounded-full"></div>
             </div>
           </div>
         </div>

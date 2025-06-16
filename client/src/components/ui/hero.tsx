@@ -46,18 +46,34 @@ export default function Hero() {
             </div>
           </div>
           <div className="relative">
-            <div className="relative w-full h-96 bg-gradient-to-br from-brand-blue/20 to-brand-cyan/20 rounded-2xl overflow-hidden">
-              <div className="absolute inset-0 bg-gradient-to-br from-blue-600/10 to-cyan-500/10"></div>
-              <div className="absolute top-8 left-8 w-16 h-16 bg-brand-blue/20 rounded-xl"></div>
-              <div className="absolute top-24 right-12 w-12 h-12 bg-brand-cyan/30 rounded-full"></div>
-              <div className="absolute bottom-16 left-16 w-20 h-20 bg-brand-emerald/20 rounded-2xl"></div>
-              <div className="absolute bottom-8 right-8 w-14 h-14 bg-blue-500/20 rounded-lg"></div>
+            <div className="relative w-full h-96 bg-gradient-to-br from-slate-100 to-slate-200 rounded-2xl overflow-hidden shadow-2xl">
+              <div className="absolute inset-0 bg-gradient-to-br from-blue-600/5 to-cyan-500/5"></div>
               
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="w-24 h-24 bg-white/90 rounded-2xl shadow-xl flex items-center justify-center">
-                  <Code className="h-12 w-12 text-brand-blue" />
+              {/* Modern tech illustration */}
+              <div className="absolute inset-4 bg-gradient-to-br from-white/80 to-slate-50/80 rounded-xl backdrop-blur-sm">
+                <div className="p-8 h-full flex flex-col justify-center">
+                  {/* Code brackets icon */}
+                  <div className="w-20 h-20 bg-gradient-to-r from-brand-blue to-brand-cyan rounded-2xl flex items-center justify-center mb-6 mx-auto shadow-lg">
+                    <div className="text-white text-2xl font-mono">&lt;/&gt;</div>
+                  </div>
+                  
+                  {/* Floating tech elements */}
+                  <div className="grid grid-cols-3 gap-4 opacity-60">
+                    <div className="h-2 bg-gradient-to-r from-brand-blue to-transparent rounded"></div>
+                    <div className="h-2 bg-gradient-to-r from-brand-cyan to-transparent rounded"></div>
+                    <div className="h-2 bg-gradient-to-r from-brand-emerald to-transparent rounded"></div>
+                    <div className="h-1 bg-slate-300 rounded col-span-2"></div>
+                    <div className="h-1 bg-slate-300 rounded"></div>
+                    <div className="h-1 bg-slate-300 rounded"></div>
+                    <div className="h-1 bg-slate-300 rounded col-span-2"></div>
+                  </div>
                 </div>
               </div>
+              
+              {/* Decorative geometric shapes */}
+              <div className="absolute top-4 right-4 w-8 h-8 bg-brand-blue/20 rounded-lg rotate-12"></div>
+              <div className="absolute bottom-4 left-4 w-6 h-6 bg-brand-cyan/30 rounded-full"></div>
+              <div className="absolute top-16 left-4 w-4 h-4 bg-brand-emerald/25 rounded-sm rotate-45"></div>
             </div>
           </div>
         </div>
