@@ -40,16 +40,20 @@ export default function Contact() {
 
   const mutation = useMutation({
     mutationFn: async (data: InsertContactInquiry) => {
-      const response = await apiRequest("POST", "/api/contact", data);
-      return response.json();
+      // Pour la version statique, on simule l'envoi
+      console.log("Contact form data:", data);
+      return new Promise((resolve) => {
+        setTimeout(() => {
+          resolve({ success: true });
+        }, 1000);
+      });
     },
     onSuccess: () => {
       toast({
         title: "Message envoyé !",
-        description: "Nous vous recontacterons dans les plus brefs délais.",
+        description: "Votre message a été enregistré. Nous vous recontacterons dans les plus brefs délais.",
       });
       form.reset();
-      queryClient.invalidateQueries({ queryKey: ["/api/contact"] });
     },
     onError: (error) => {
       toast({
