@@ -1,0 +1,114 @@
+# Base44 development environment for this repository.
+#
+#   docker compose -f docker-compose.base44.yml up -d --build
+#
+# The app runs straight from the cloned source: `tsx` executes server/index.ts,
+# which serves the API and mounts Vite (dev server, middleware mode) on port
+# 5000 -> published on host port 3000. Edits hot-reload: Vite HMR for client
+# files, `tsx watch` restarts the server for server files.
+#
+# Postgres runs locally, but the app talks to Postgres through
+# `@neondatabase/serverless`, which cannot open a plain TCP connection and
+# needs a WebSocket tunnel. `wsproxy` (Neon's own relay) provides that tunnel;
+# the small BASE44_PREVIEW_MODE-gated block in server/db.ts points the driver
+# at it. See AGENTS.md.
+
+services:
+  db:
+    image: postgres:16-alpine
+    restart: on-failure
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: postgres
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d postgres"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+      start_period: 10s
+
+  # WebSocket -> TCP relay so the Neon serverless driver can reach the local
+  # Postgres. ALLOW_ADDR_REGEX is the allowlist of destinations the relay will
+  # dial (its default only allows *.neon.tech).
+  wsproxy:
+    image: ghcr.io/neondatabase/wsproxy:latest
+    restart: on-failure
+    environment:
+      ALLOW_ADDR_REGEX: "^db:5432$"
+    depends_on:
+      db:
+        condition: service_healthy
+    healthcheck:
+      # the relay exposes Prometheus metrics on :2112
+      test: ["CMD-SHELL", "wget -q -O /dev/null http://127.0.0.1:2112/metrics || exit 1"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+      start_period: 5s
+
+  # One-shot: install dependencies, then push shared/schema.ts to the database.
+  # Runs to completion before the app starts.
+  migrate:
+    image: node:22
+    working_dir: /app
+    volumes:
+      - .:/app
+    environment:
+      DATABASE_URL: postgresql://postgres:password@db:5432/postgres
+    depends_on:
+      db:
+        condition: service_healthy
+    command:
+      - sh
+      - -ec
+      - npm ci --no-audit --no-fund && exec npx drizzle-kit push --force
+
+  app:
+    image: node:22
+    working_dir: /app
+    restart: on-failure
+    # the app always listens on 5000 (server/index.ts); the preview entry point
+    # must be host port 3000
+    ports:
+      - "3000:5000"
+    env_file:
+      # secrets supplied through the Base44 dashboard; listed last so a
+      # dashboard value always wins over anything set below
+      - /run/base44/app.env
+    environment:
+      NODE_ENV: development
+      # local infrastructure credentials, created by this compose file
+      DATABASE_URL: postgresql://postgres:password@db:5432/postgres
+      NEON_WS_PROXY: wsproxy
+      # platform-provided flag; enables the sandbox-only database tunnel config
+      BASE44_PREVIEW_MODE:
+    volumes:
+      - .:/app
+    depends_on:
+      db:
+        condition: service_healthy
+      wsproxy:
+        condition: service_healthy
+      migrate:
+        condition: service_completed_successfully
+    command:
+      - sh
+      - -ec
+      - npm ci --no-audit --no-fund && exec npx tsx watch server/index.ts
+    healthcheck:
+      # checks both halves of this container: the API (needs Postgres through
+      # wsproxy) and the Vite-served frontend
+      test:
+        - CMD-SHELL
+        - >-
+          node -e "Promise.all(['http://127.0.0.1:5000/','http://127.0.0.1:5000/api/contact'].map(u=>fetch(u).then(r=>[u,r.status]).catch(e=>[u,String(e)]))).then(rs=>{const bad=rs.filter(r=>r[1]!==200);if(bad.length){console.error('healthcheck failed:',JSON.stringify(bad));process.exit(1)}console.log('frontend and api ok')})"
+      interval: 10s
+      timeout: 5s
+      retries: 6
+      start_period: 150s
+
+volumes:
+  postgres_data:
