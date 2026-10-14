@@ -40,8 +40,9 @@ docker compose -f docker-compose.base44.yml up -d --build
   simulates the submission client-side (`setTimeout`) and shows a success toast.
   `POST /api/contact` exists and writes to `contact_inquiries`, but nothing in
   the UI calls it — do not read a passing toast as proof the API or database work.
-- `client/index.html` loads `replit-dev-banner.js` from replit.com; outside
-  Replit it 404s and logs one console error. Harmless, left as-is.
+- `client/index.html` originally loaded a Replit dev-banner script from
+  replit.com; outside Replit it fails (`ERR_BLOCKED_BY_ORB`) and logs a console
+  error on every page load, so it was removed. Don't re-add it.
 - `DATABASE_URL` is hardcoded to `localhost:5432` in the `npm run dev` script, so
   that script cannot be used in the container. Compose runs
   `npx tsx watch server/index.ts` directly instead.
